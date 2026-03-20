@@ -1,0 +1,777 @@
+<!-- FILE: goc-hoc-tap.html -->
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="icon" type="image/png" href="images/favicon-round.png">
+  <link rel="apple-touch-icon" href="images/favicon-round.png">
+  <title>Góc học tập - Toán tư duy MMABC Đông Mỹ</title>
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Fonts: Public Sans to match other pages -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF7A2F',
+              navy: '#1A2B3C',
+              yellow: '#FFD580',
+              mint: '#A8E6CF',
+              ivory: '#FFF8F0',
+              'orange-light': '#FFF0E0',
+              'orange-border': '#FFD9B0'
+            }
+          },
+          fontFamily: {
+            sans: ['Public Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style data-purpose="custom-transitions">
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(255, 122, 47, 0.1);
+    }
+
+    .filter-pill.active {
+      background-color: #FF7A2F;
+      color: white;
+      border-color: #FF7A2F;
+    }
+
+    .filter-pill:not(.active) {
+      background-color: transparent;
+      color: #FF7A2F;
+      border-color: #FF7A2F;
+    }
+
+    .transition-all-300 {
+      transition: all 0.3s ease;
+    }
+
+    [data-category-item].hidden {
+      display: none;
+    }
+  </style>
+  <style data-purpose="navbar">
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #FFFFFF;
+      border-bottom: 0.5px solid #FFD9B0;
+    }
+
+    .site-nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-nav-logo {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #C95B00;
+      text-decoration: none;
+    }
+
+    .site-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .site-nav-links a {
+      text-decoration: none;
+      color: #1A2B3C;
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .site-nav-links a:hover {
+      color: #FF7A2F;
+    }
+
+    .site-nav-links a.nav-active {
+      color: #FF7A2F;
+      border-bottom: 2px solid #FF7A2F;
+      padding-bottom: 2px;
+    }
+
+    .site-nav-cta {
+      background: #FF7A2F !important;
+      color: #fff !important;
+      border-radius: 20px !important;
+      padding: 10px 24px !important;
+      font-weight: 700 !important;
+    }
+
+    .site-nav-cta:hover {
+      box-shadow: 0 4px 12px rgba(255, 122, 47, 0.3);
+    }
+
+    .site-nav-mobile-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #1A2B3C;
+    }
+
+    .site-nav-mobile {
+      display: none;
+      background: #fff;
+      border-top: 1px solid #FFD9B0;
+      padding: 16px 24px;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .site-nav-mobile.show {
+      display: flex;
+    }
+
+    .site-nav-mobile a {
+      text-decoration: none;
+      color: #1A2B3C;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 8px 0;
+    }
+
+    .site-nav-mobile a:hover {
+      color: #FF7A2F;
+    }
+
+    .site-nav-mobile a.nav-active {
+      color: #FF7A2F;
+    }
+
+    .site-nav-mobile .site-nav-cta {
+      display: block;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .site-nav-links {
+        display: none !important;
+      }
+
+      .site-nav-mobile-btn {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-brand-ivory text-brand-navy font-sans antialiased">
+  <!-- BEGIN: MainHeader -->
+  <header class="site-nav">
+    <nav class="site-nav-inner">
+      <a href="index.html" class="site-nav-logo">MMABC Đông Mỹ</a>
+      <div class="site-nav-links">
+        <a href="ve-chung-toi.html">Giới thiệu</a>
+        <a href="goc-hoc-tap.html" class="nav-active">Góc học tập</a>
+        <a href="index.html#lich-hoc">Lịch học</a>
+        <a href="index.html#hoc-phi">Học phí</a>
+        <a href="ket-qua.html">Kết quả</a>
+        <a href="index.html#dang-ky" class="site-nav-cta">Đăng ký học thử</a>
+      </div>
+      <button class="site-nav-mobile-btn"
+        onclick="document.getElementById('site-mobile-menu').classList.toggle('show')">
+        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </nav>
+    <div id="site-mobile-menu" class="site-nav-mobile">
+      <a href="ve-chung-toi.html">Giới thiệu</a>
+      <a href="goc-hoc-tap.html" class="nav-active">Góc học tập</a>
+      <a href="index.html#lich-hoc">Lịch học</a>
+      <a href="index.html#hoc-phi">Học phí</a>
+      <a href="ket-qua.html">Kết quả</a>
+      <a href="index.html#dang-ky">Đăng ký</a>
+      <a href="index.html#dang-ky" class="site-nav-cta">Đăng ký học thử</a>
+    </div>
+  </header>
+  <!-- END: MainHeader -->
+  <!-- BEGIN: Hero Section -->
+  <header class="pt-12 pb-8 md:pt-16 md:pb-12 bg-gradient-to-b from-brand-orange-light to-brand-ivory">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <!-- Breadcrumb -->
+      <nav class="flex justify-center mb-6 text-sm text-gray-500" data-purpose="breadcrumb">
+        <a class="hover:text-brand-orange" href="index.html">Trang chủ</a>
+        <span class="mx-2">›</span>
+        <span class="text-brand-orange font-medium">Góc học tập</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold text-brand-navy mb-4">Góc học tập MMABC</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Kiến thức thực tế cho ba mẹ — không lý thuyết, không khô khan. Đồng hành cùng con chinh phục tư duy toán học.
+      </p>
+    </div>
+  </header>
+  <!-- END: Hero Section -->
+  <!-- BEGIN: Filter Section -->
+  <section class="py-6 sticky top-[80px] z-40 bg-brand-ivory/95 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-3" id="filter-container">
+        <button class="filter-pill active px-6 py-2 rounded-full border-2 text-sm font-bold transition-all-300"
+          data-filter="all">Tất cả</button>
+        <button class="filter-pill px-6 py-2 rounded-full border-2 text-sm font-bold transition-all-300"
+          data-filter="meo-tai-nha">Mẹo tại nhà</button>
+        <button class="filter-pill px-6 py-2 rounded-full border-2 text-sm font-bold transition-all-300"
+          data-filter="phuong-phap">Phương pháp MMABC</button>
+        <button class="filter-pill px-6 py-2 rounded-full border-2 text-sm font-bold transition-all-300"
+          data-filter="tam-ly">Tâm lý học tập</button>
+        <button class="filter-pill px-6 py-2 rounded-full border-2 text-sm font-bold transition-all-300"
+          data-filter="bai-tap-vui">Bài tập vui</button>
+      </div>
+    </div>
+  </section>
+  <!-- END: Filter Section -->
+  <!-- BEGIN: Article Grid -->
+  <main class="py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="article-grid">
+        <!-- Article 1 -->
+        <article
+          class="bg-white rounded-xl border border-brand-orange-border overflow-hidden card-hover transition-all-300 flex flex-col"
+          data-category-item="meo-tai-nha">
+          <div class="h-40 bg-orange-100 flex items-center justify-center">
+            <span class="text-5xl font-bold text-brand-orange opacity-60">M</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider mb-2">Mẹo tại nhà</span>
+            <h3 class="text-xl font-bold text-brand-navy mb-3 leading-tight">5 trò chơi toán học ba mẹ có thể chơi cùng
+              con mỗi tối</h3>
+            <p class="text-gray-600 text-sm mb-4 flex-grow">Tận dụng những vật dụng quen thuộc trong nhà để giúp con yêu
+              thích các con số một cách tự nhiên...</p>
+            <a class="text-brand-orange font-bold text-sm hover:underline inline-flex items-center"
+              href="bai-viet-mau.html">
+              Xem chi tiết
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+        <!-- Article 2 -->
+        <article
+          class="bg-white rounded-xl border border-brand-orange-border overflow-hidden card-hover transition-all-300 flex flex-col"
+          data-category-item="phuong-phap">
+          <div class="h-40 bg-blue-100 flex items-center justify-center">
+            <span class="text-5xl font-bold text-blue-400 opacity-60">P</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-xs font-bold text-blue-500 uppercase tracking-wider mb-2">Phương pháp MMABC</span>
+            <h3 class="text-xl font-bold text-brand-navy mb-3 leading-tight">MMABC là gì? Giải thích đơn giản cho ba mẹ
+              không chuyên</h3>
+            <p class="text-gray-600 text-sm mb-4 flex-grow">Tìm hiểu về triết lý giáo dục đặt đứa trẻ làm trung tâm và
+              cách MMABC giúp con phát triển tư duy logic...</p>
+            <a class="text-brand-orange font-bold text-sm hover:underline inline-flex items-center"
+              href="bai-viet-mau.html">
+              Xem chi tiết
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+        <!-- Article 3 -->
+        <article
+          class="bg-white rounded-xl border border-brand-orange-border overflow-hidden card-hover transition-all-300 flex flex-col"
+          data-category-item="tam-ly">
+          <div class="h-40 bg-emerald-50 flex items-center justify-center">
+            <span class="text-5xl font-bold text-brand-mint opacity-60">T</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider mb-2">Tâm lý học tập</span>
+            <h3 class="text-xl font-bold text-brand-navy mb-3 leading-tight">Con nói "con ghét toán" — ba mẹ nên làm gì?
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 flex-grow">Lắng nghe nỗi sợ của con và những bước đi tâm lý giúp con
+              lấy lại tự tin với môn học này...</p>
+            <a class="text-brand-orange font-bold text-sm hover:underline inline-flex items-center"
+              href="bai-viet-mau.html">
+              Xem chi tiết
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+        <!-- Article 4 -->
+        <article
+          class="bg-white rounded-xl border border-brand-orange-border overflow-hidden card-hover transition-all-300 flex flex-col"
+          data-category-item="bai-tap-vui">
+          <div class="h-40 bg-yellow-50 flex items-center justify-center">
+            <span class="text-5xl font-bold text-brand-yellow opacity-60">B</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-xs font-bold text-yellow-600 uppercase tracking-wider mb-2">Bài tập vui</span>
+            <h3 class="text-xl font-bold text-brand-navy mb-3 leading-tight">Đố vui toán tư duy: 3 câu đố khiến cả nhà
+              cùng suy nghĩ</h3>
+            <p class="text-gray-600 text-sm mb-4 flex-grow">Những câu đố hình ảnh sinh động giúp rèn luyện khả năng quan
+              sát và suy luận sắc bén cho trẻ...</p>
+            <a class="text-brand-orange font-bold text-sm hover:underline inline-flex items-center"
+              href="bai-viet-mau.html">
+              Xem chi tiết
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+  <!-- END: Article Grid -->
+  <!-- BEGIN: Newsletter Section -->
+  <section class="py-16 bg-brand-orange-light">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-brand-navy mb-4">Nhận bài mới qua Zalo</h2>
+      <p class="text-gray-600 mb-8">Chúng tôi sẽ gửi những mẹo học tập và bài tập tư duy mới nhất trực tiếp cho bạn mỗi
+        tuần.</p>
+      <form class="flex flex-col sm:flex-row gap-3 justify-center items-center"
+        onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký!');">
+        <input
+          class="w-full sm:w-80 px-6 py-3 rounded-full border-brand-orange-border focus:ring-brand-orange focus:border-brand-orange"
+          placeholder="Nhập số điện thoại Zalo của bạn" required="" type="tel" />
+        <button
+          class="w-full sm:w-auto bg-brand-orange text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition-all shadow-lg"
+          type="submit">
+          Nhắn Zalo ngay
+        </button>
+      </form>
+    </div>
+  </section>
+  <!-- END: Newsletter Section -->
+  <!-- BEGIN: Footer -->
+  <footer class="bg-brand-navy text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <h3 class="text-xl font-bold mb-4">MMABC Đông Mỹ</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Xây dựng nền tảng tư duy toán học vững chắc và niềm đam mê học hỏi cho trẻ em Việt.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Liên hệ</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li class="flex items-start">
+              <span class="mr-3 text-brand-orange">📍</span>
+              Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội
+            </li>
+            <li class="flex items-center">
+              <span class="mr-3 text-brand-orange">📞</span>
+              Zalo: 0825 797 789
+            </li>
+            <li class="flex items-center">
+              <span class="mr-3 text-brand-orange">✉</span>
+              mmabcdongmy@gmail.com
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Theo dõi</h4>
+          <div class="flex space-x-4">
+            <a class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-brand-orange transition-colors"
+              href="https://www.facebook.com/mmabcdongmy">FB</a>
+            <a class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-brand-orange transition-colors"
+              href="https://zalo.me/0825797789">ZL</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+        © 2023 MMABC Đông Mỹ. Tất cả quyền được bảo lưu.
+      </div>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+  <!-- BEGIN: Filtering Logic -->
+  <script data-purpose="article-filtering">
+    document.addEventListener('DOMContentLoaded', () => {
+      const filters = document.querySelectorAll('[data-filter]');
+      const articles = document.querySelectorAll('[data-category-item]');
+
+      filters.forEach(filter => {
+        filter.addEventListener('click', () => {
+          const category = filter.getAttribute('data-filter');
+
+          // Update Active State
+          filters.forEach(f => f.classList.remove('active'));
+          filter.classList.add('active');
+
+          // Filter Articles
+          articles.forEach(article => {
+            const articleCategory = article.getAttribute('data-category-item');
+
+            if (category === 'all' || articleCategory === category) {
+              article.classList.remove('hidden');
+              // Animation trigger
+              article.style.opacity = '0';
+              setTimeout(() => {
+                article.style.opacity = '1';
+              }, 10);
+            } else {
+              article.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
+  <!-- END: Filtering Logic -->
+  <!-- BEGIN: Chatbot Widget -->
+  <style data-purpose="chatbot-widget">
+    #mmabc-chatbot-bubble {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #FF7A2F;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(255, 122, 47, 0.4);
+      z-index: 9999;
+      transition: transform 0.2s, box-shadow 0.2s
+    }
+
+    #mmabc-chatbot-bubble:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(255, 122, 47, 0.5)
+    }
+
+    #mmabc-chatbot-bubble svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff
+    }
+
+    #mmabc-chatbot-window {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      width: 320px;
+      max-height: 520px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      z-index: 9999;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Public Sans', 'Nunito', sans-serif;
+      animation: mmabcSlideUp .25s ease-out
+    }
+
+    #mmabc-chatbot-window.open {
+      display: flex
+    }
+
+    @keyframes mmabcSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .mmabc-chat-header {
+      background: #FF7A2F;
+      color: #fff;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0
+    }
+
+    .mmabc-chat-header-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0
+    }
+
+    .mmabc-chat-header-info {
+      flex: 1;
+      min-width: 0
+    }
+
+    .mmabc-chat-header-name {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.2
+    }
+
+    .mmabc-chat-header-status {
+      font-size: 11px;
+      opacity: .85;
+      line-height: 1.3
+    }
+
+    .mmabc-chat-close {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background .15s
+    }
+
+    .mmabc-chat-close:hover {
+      background: rgba(255, 255, 255, .2)
+    }
+
+    .mmabc-chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0;
+      max-height: 340px
+    }
+
+    .mmabc-msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      word-wrap: break-word
+    }
+
+    .mmabc-msg-bot {
+      background: #FFF0E0;
+      color: #1A2B3C;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px
+    }
+
+    .mmabc-msg-user {
+      background: #FF7A2F;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px
+    }
+
+    .mmabc-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0
+    }
+
+    .mmabc-chip {
+      background: #fff;
+      color: #FF7A2F;
+      border: 1.5px solid #FF7A2F;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+      line-height: 1.3;
+      font-family: inherit
+    }
+
+    .mmabc-chip:hover {
+      background: #FF7A2F;
+      color: #fff
+    }
+
+    .mmabc-chat-input-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-top: 1px solid #f0f0f0;
+      flex-shrink: 0;
+      background: #fff
+    }
+
+    .mmabc-chat-input {
+      flex: 1;
+      border: 1.5px solid #e5e5e5;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      outline: none;
+      font-family: inherit;
+      transition: border-color .15s
+    }
+
+    .mmabc-chat-input:focus {
+      border-color: #FF7A2F
+    }
+
+    .mmabc-chat-send {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #FF7A2F;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s
+    }
+
+    .mmabc-chat-send:hover {
+      background: #e86a20
+    }
+
+    .mmabc-chat-send:disabled {
+      background: #ccc;
+      cursor: not-allowed
+    }
+
+    .mmabc-zalo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 7px 14px;
+      border: 1.5px solid #FF7A2F;
+      border-radius: 999px;
+      color: #FF7A2F;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .15s;
+      font-family: inherit
+    }
+
+    .mmabc-zalo-btn:hover {
+      background: #FF7A2F;
+      color: #fff
+    }
+
+    .mmabc-typing {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      background: #FFF0E0;
+      border-radius: 14px;
+      border-bottom-left-radius: 4px;
+      align-self: flex-start;
+      max-width: 85%
+    }
+
+    .mmabc-typing-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #FF7A2F;
+      animation: mmabcBounce 1.2s infinite
+    }
+
+    .mmabc-typing-dot:nth-child(2) {
+      animation-delay: .2s
+    }
+
+    .mmabc-typing-dot:nth-child(3) {
+      animation-delay: .4s
+    }
+
+    @keyframes mmabcBounce {
+
+      0%,
+      60%,
+      100% {
+        transform: translateY(0);
+        opacity: .4
+      }
+
+      30% {
+        transform: translateY(-6px);
+        opacity: 1
+      }
+    }
+
+    @media(max-width:400px) {
+      #mmabc-chatbot-window {
+        right: 8px;
+        left: 8px;
+        width: auto;
+        bottom: 72px
+      }
+    }
+  </style>
+  <button id="mmabc-chatbot-bubble" aria-label="Mở chat"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z" />
+    </svg></button>
+  <div id="mmabc-chatbot-window">
+    <div class="mmabc-chat-header">
+      <div class="mmabc-chat-header-avatar"><img src="images/logo.png" alt="MMABC Đông Mỹ"
+          style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;"></div>
+      <div class="mmabc-chat-header-info">
+        <div class="mmabc-chat-header-name">MMABC Toán Tư Duy</div>
+        <div class="mmabc-chat-header-status">Trả lời trong vài giây</div>
+      </div><button class="mmabc-chat-close" id="mmabc-chat-close-btn" aria-label="Đóng"><svg width="18" height="18"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
+    <div class="mmabc-chat-body" id="mmabc-chat-body"></div>
+    <div class="mmabc-chat-input-area"><input class="mmabc-chat-input" id="mmabc-chat-input" type="text"
+        placeholder="Nhập câu hỏi..." autocomplete="off" /><button class="mmabc-chat-send" id="mmabc-chat-send-btn"
+        aria-label="Gửi"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+        </svg></button></div>
+  </div>
+  <script data-purpose="chatbot-widget">
+    (function () { var K = 'AIzaSyBqkGZf9TQZR-aHXmS73k17Kjcj0ffJGrg', U = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + K, S = 'Bạn là trợ lý tư vấn cho lớp toán tư duy MMABC Đông Mỹ.\nThông tin lớp:\n- Địa chỉ: Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội\n- Zalo/SĐT: 0825 797 789\n- Facebook: facebook.com/mmabcdongmy\n- Độ tuổi: 6-12 tuổi\n- Sĩ số: tối đa 8 học sinh/lớp\n- Phương pháp: MMABC — phát triển tư duy logic\n- Học thử: miễn phí buổi đầu\n\nTrả lời ngắn gọn, thân thiện, bằng tiếng Việt.\nNếu không biết → đề nghị nhắn Zalo 0825 797 789 hoặc email mmabcdongmy@gmail.com.\nKhông bịa thông tin.', F = [{ q: 'Học phí bao nhiêu?', a: 'Học phí 500.000đ/tháng, gồm 8 buổi học. Buổi đầu tiên học thử hoàn toàn miễn phí!' }, { q: 'Lịch học thế nào?', a: 'Lớp học 8 buổi/tháng, lộ trình 24 buổi trong 3 tháng. Mỗi buổi 90 phút.' }, { q: 'Con mấy tuổi học được?', a: 'Lớp MMABC nhận trẻ từ 6 đến 12 tuổi. Bé nào cũng có thể bắt đầu!' }, { q: 'Lớp có mấy học sinh?', a: 'Tối đa 8 học sinh mỗi lớp — đảm bảo cô có thể theo sát từng bé.' }, { q: 'Đăng ký học thử như thế nào?', a: 'Ba/mẹ điền form trên trang chủ hoặc nhắn Zalo 0825 797 789. Cô sẽ liên hệ trong 24 giờ!' }, { q: 'Lớp ở đâu?', a: 'Lớp tại Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội. Ba/mẹ có thể nhắn Zalo để được chỉ đường!' }], b = document.getElementById('mmabc-chatbot-bubble'), w = document.getElementById('mmabc-chatbot-window'), x = document.getElementById('mmabc-chat-close-btn'), B = document.getElementById('mmabc-chat-body'), I = document.getElementById('mmabc-chat-input'), sB = document.getElementById('mmabc-chat-send-btn'), o = false, h = false; function t() { o = !o; if (o) { w.classList.add('open'); b.style.display = 'none'; if (!h) { h = true; sw() } I.focus() } else { w.classList.remove('open'); b.style.display = 'flex' } } b.onclick = t; x.onclick = t; function am(t2, ty) { var d = document.createElement('div'); d.className = 'mmabc-msg ' + (ty === 'user' ? 'mmabc-msg-user' : 'mmabc-msg-bot'); d.textContent = t2; B.appendChild(d); sc() } function az() { var wr = document.createElement('div'); wr.style.alignSelf = 'flex-start'; wr.innerHTML = '<a href="https://zalo.me/0825797789" target="_blank" class="mmabc-zalo-btn">💬 Nhắn Zalo để tư vấn thêm</a>'; B.appendChild(wr); sc() } function st() { var d = document.createElement('div'); d.className = 'mmabc-typing'; d.id = 'mmabc-typing-indicator'; d.innerHTML = '<div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div>'; B.appendChild(d); sc() } function rt() { var e = document.getElementById('mmabc-typing-indicator'); if (e) e.remove() } function sc() { setTimeout(function () { B.scrollTop = B.scrollHeight }, 50) } function sw() { am('Xin chào! 👋 Mình là trợ lý tư vấn của lớp toán tư duy MMABC Đông Mỹ. Ba/mẹ muốn hỏi gì ạ?', 'bot'); var c = document.createElement('div'); c.className = 'mmabc-chips'; c.style.alignSelf = 'flex-start'; F.forEach(function (f) { var btn = document.createElement('button'); btn.className = 'mmabc-chip'; btn.textContent = f.q; btn.onclick = function () { am(f.q, 'user'); am(f.a, 'bot'); az() }; c.appendChild(btn) }); B.appendChild(c); sc() } function hs() { var tx = I.value.trim(); if (!tx) return; I.value = ''; am(tx, 'user'); sB.disabled = true; st(); fetch(U, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ system_instruction: { parts: [{ text: S }] }, contents: [{ parts: [{ text: tx }] }] }) }).then(function (r) { return r.json() }).then(function (d) { rt(); var rp = ''; try { rp = d.candidates[0].content.parts[0].text } catch (e) { rp = 'Xin lỗi, ba/mẹ vui lòng nhắn Zalo 0825 797 789 để được tư vấn trực tiếp nhé!' } am(rp, 'bot'); az(); sB.disabled = false }).catch(function () { rt(); am('Xin lỗi, có lỗi xảy ra. Ba/mẹ vui lòng nhắn Zalo 0825 797 789 nhé!', 'bot'); az(); sB.disabled = false }) } sB.onclick = hs; I.onkeydown = function (e) { if (e.key === 'Enter') { e.preventDefault(); hs() } } })();
+  </script>
+  <!-- END: Chatbot Widget -->
+
+</body>
+
+</html>
