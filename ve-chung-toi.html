@@ -37,6 +37,57 @@
     }
   </script>
   <style data-purpose="navbar">
+    /* Performance & smoothness */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Smooth hover transitions on all interactive elements */
+    a, button, .card, [class*="hover"] {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: auto;
+    }
+
+    /* Navbar smooth appearance */
+    .site-nav {
+      transition: box-shadow 0.2s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Smooth image rendering */
+    img {
+      image-rendering: -webkit-optimize-contrast;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    /* GPU acceleration for animated elements */
+    .card, .mmabc-chatbot-window,
+    .mmabc-chatbot-bubble {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    /* Smooth card hover lift */
+    .card:hover,
+    [class*="rounded-xl"]:hover,
+    [class*="rounded-2xl"]:hover {
+      transform: translateY(-2px) translateZ(0);
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Remove jarring focus outlines, replace smooth */
+    *:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(255, 122, 47, 0.3);
+      transition: box-shadow 0.15s ease;
+    }
     html {
       scroll-behavior: smooth;
     }
@@ -52,7 +103,7 @@
     .site-nav-inner {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 18px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -75,7 +126,7 @@
       text-decoration: none;
       color: #1A2B3C;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 15px;
       transition: color 0.2s;
     }
 
@@ -93,7 +144,7 @@
       background: #FF7A2F !important;
       color: #fff !important;
       border-radius: 20px !important;
-      padding: 10px 24px !important;
+      padding: 12px 28px !important;
       font-weight: 700 !important;
     }
 
@@ -292,11 +343,30 @@
   <!-- BEGIN: MainHeader -->
   <header class="site-nav">
     <nav class="site-nav-inner">
-      <a href="index.html" class="site-nav-logo">MMABC Đông Mỹ</a>
+      <a href="index.html" style="display:flex;
+         align-items:center; gap:12px;
+         text-decoration:none; flex-shrink:0;">
+        <span style="font-size:2rem; font-weight:700;
+                     color:#C95B00; line-height:1;
+                     letter-spacing:-0.5px;">MMABC</span>
+        <div style="width:1.5px; height:40px;
+                    background:#FFD9B0; flex-shrink:0;"></div>
+        <div style="display:flex; flex-direction:column;
+                    gap:2px;">
+          <span style="font-size:14px; font-weight:600;
+                       color:#1A2B3C; line-height:1;">
+            Đông Mỹ
+          </span>
+          <span style="font-size:11px; color:#FF7A2F;
+                       font-weight:500; line-height:1.3;
+                       max-width:280px;">
+            Toán tư duy tích hợp toán trường MMABC · Luyện chữ đẹp · Hành trang cho bé vào lớp 1
+          </span>
+        </div>
+      </a>
       <div class="site-nav-links">
         <a href="ve-chung-toi.html" class="nav-active">Giới thiệu</a>
         <a href="goc-hoc-tap.html">Góc học tập</a>
-        <a href="index.html#lich-hoc">Lịch học</a>
         <a href="index.html#hoc-phi">Học phí</a>
         <a href="ket-qua.html">Kết quả</a>
         <a href="index.html#dang-ky" class="site-nav-cta">Đăng ký học thử</a>
@@ -1060,7 +1130,7 @@
     </div>
   </div>
   <script data-purpose="chatbot-widget">
-    (function () { var GEMINI_API_KEY = 'AIzaSyBqkGZf9TQZR-aHXmS73k17Kjcj0ffJGrg'; var GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_API_KEY; var systemPrompt = 'Bạn là trợ lý tư vấn cho lớp toán tư duy MMABC Đông Mỹ.\nThông tin lớp:\n- Địa chỉ: Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội\n- Zalo/SĐT: 0825 797 789\n- Facebook: facebook.com/mmabcdongmy\n- Độ tuổi: 6-12 tuổi\n- Sĩ số: tối đa 8 học sinh/lớp\n- Phương pháp: MMABC — phát triển tư duy logic\n- Học thử: miễn phí buổi đầu\n\nTrả lời ngắn gọn, thân thiện, bằng tiếng Việt.\nNếu không biết → đề nghị nhắn Zalo 0825 797 789 hoặc email mmabcdongmy@gmail.com.\nKhông bịa thông tin.'; var faqData = [{ q: 'Học phí bao nhiêu?', a: 'Học phí 500.000đ/tháng, gồm 8 buổi học. Buổi đầu tiên học thử hoàn toàn miễn phí!' }, { q: 'Lịch học thế nào?', a: 'Lớp học 8 buổi/tháng, lộ trình 24 buổi trong 3 tháng. Mỗi buổi 90 phút.' }, { q: 'Con mấy tuổi học được?', a: 'Lớp MMABC nhận trẻ từ 6 đến 12 tuổi. Bé nào cũng có thể bắt đầu!' }, { q: 'Lớp có mấy học sinh?', a: 'Tối đa 8 học sinh mỗi lớp — đảm bảo cô có thể theo sát từng bé.' }, { q: 'Đăng ký học thử như thế nào?', a: 'Ba/mẹ điền form trên trang chủ hoặc nhắn Zalo 0825 797 789. Cô sẽ liên hệ trong 24 giờ!' }, { q: 'Lớp ở đâu?', a: 'Lớp tại Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội. Ba/mẹ có thể nhắn Zalo để được chỉ đường!' }]; var bubble = document.getElementById('mmabc-chatbot-bubble'); var chatWindow = document.getElementById('mmabc-chatbot-window'); var closeBtn = document.getElementById('mmabc-chat-close-btn'); var chatBody = document.getElementById('mmabc-chat-body'); var chatInput = document.getElementById('mmabc-chat-input'); var sendBtn = document.getElementById('mmabc-chat-send-btn'); var isOpen = false; var hasOpened = false; function toggleChat() { isOpen = !isOpen; if (isOpen) { chatWindow.classList.add('open'); bubble.style.display = 'none'; if (!hasOpened) { hasOpened = true; showWelcome() } chatInput.focus() } else { chatWindow.classList.remove('open'); bubble.style.display = 'flex' } } bubble.addEventListener('click', toggleChat); closeBtn.addEventListener('click', toggleChat); function addMessage(text, type) { var div = document.createElement('div'); div.className = 'mmabc-msg ' + (type === 'user' ? 'mmabc-msg-user' : 'mmabc-msg-bot'); div.textContent = text; chatBody.appendChild(div); scrollToBottom(); return div } function addZaloButton() { var wrap = document.createElement('div'); wrap.style.alignSelf = 'flex-start'; wrap.innerHTML = '<a href="https://zalo.me/0825797789" target="_blank" class="mmabc-zalo-btn">💬 Nhắn Zalo để tư vấn thêm</a>'; chatBody.appendChild(wrap); scrollToBottom() } function showTyping() { var div = document.createElement('div'); div.className = 'mmabc-typing'; div.id = 'mmabc-typing-indicator'; div.innerHTML = '<div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div>'; chatBody.appendChild(div); scrollToBottom() } function removeTyping() { var el = document.getElementById('mmabc-typing-indicator'); if (el) el.remove() } function scrollToBottom() { setTimeout(function () { chatBody.scrollTop = chatBody.scrollHeight }, 50) } function showWelcome() { addMessage('Xin chào! 👋 Mình là trợ lý tư vấn của lớp toán tư duy MMABC Đông Mỹ. Ba/mẹ muốn hỏi gì ạ?', 'bot'); var chipsWrap = document.createElement('div'); chipsWrap.className = 'mmabc-chips'; chipsWrap.style.alignSelf = 'flex-start'; faqData.forEach(function (faq) { var btn = document.createElement('button'); btn.className = 'mmabc-chip'; btn.textContent = faq.q; btn.addEventListener('click', function () { handleFAQ(faq) }); chipsWrap.appendChild(btn) }); chatBody.appendChild(chipsWrap); scrollToBottom() } function handleFAQ(faq) { addMessage(faq.q, 'user'); addMessage(faq.a, 'bot'); addZaloButton() } function handleSend() { var text = chatInput.value.trim(); if (!text) return; chatInput.value = ''; addMessage(text, 'user'); sendBtn.disabled = true; showTyping(); fetch(GEMINI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ system_instruction: { parts: [{ text: systemPrompt }] }, contents: [{ parts: [{ text: text }] }] }) }).then(function (r) { return r.json() }).then(function (data) { removeTyping(); var reply = ''; try { reply = data.candidates[0].content.parts[0].text } catch (e) { reply = 'Xin lỗi, mình chưa trả lời được câu này. Ba/mẹ vui lòng nhắn Zalo 0825 797 789 để được tư vấn trực tiếp nhé!' } addMessage(reply, 'bot'); addZaloButton(); sendBtn.disabled = false }).catch(function () { removeTyping(); addMessage('Xin lỗi, có lỗi xảy ra. Ba/mẹ vui lòng nhắn Zalo 0825 797 789 để được tư vấn trực tiếp nhé!', 'bot'); addZaloButton(); sendBtn.disabled = false }) } sendBtn.addEventListener('click', handleSend); chatInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); handleSend() } }) })();
+    (function () { var GEMINI_API_KEY = 'AIzaSyBqkGZf9TQZR-aHXmS73k17Kjcj0ffJGrg'; var GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_API_KEY; var systemPrompt = 'Bạn là trợ lý tư vấn cho lớp toán tư duy MMABC Đông Mỹ.\nThông tin lớp:\n- Địa chỉ: Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội\n- Zalo/SĐT: 0825 797 789\n- Facebook: facebook.com/mmabcdongmy\n- Độ tuổi: 4-12 tuổi\n- Sĩ số: tối đa 8 học sinh/lớp\n- Phương pháp: MMABC — phát triển tư duy logic\n- Học thử: miễn phí buổi đầu\n\nTrả lời ngắn gọn, thân thiện, bằng tiếng Việt.\nNếu không biết → đề nghị nhắn Zalo 0825 797 789 hoặc email mmabcdongmy@gmail.com.\nKhông bịa thông tin.'; var faqData = [{ q: 'Học phí bao nhiêu?', a: 'Học phí từ 499.000đ/tháng, gồm 8 buổi học. Buổi đầu tiên học thử hoàn toàn miễn phí!' }, { q: 'Lịch học thế nào?', a: 'Lớp học 8 buổi/tháng, lộ trình 24 buổi trong 3 tháng. Mỗi buổi 90 phút.' }, { q: 'Con mấy tuổi học được?', a: 'Lớp MMABC nhận trẻ từ 4 đến 12 tuổi. Bé nào cũng có thể bắt đầu!' }, { q: 'Lớp có mấy học sinh?', a: 'Tối đa 8 học sinh mỗi lớp — đảm bảo cô có thể theo sát từng bé.' }, { q: 'Đăng ký học thử như thế nào?', a: 'Ba/mẹ điền form trên trang chủ hoặc nhắn Zalo 0825 797 789. Cô sẽ liên hệ trong 24 giờ!' }, { q: 'Lớp ở đâu?', a: 'Lớp tại Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội. Ba/mẹ có thể nhắn Zalo để được chỉ đường!' }]; var bubble = document.getElementById('mmabc-chatbot-bubble'); var chatWindow = document.getElementById('mmabc-chatbot-window'); var closeBtn = document.getElementById('mmabc-chat-close-btn'); var chatBody = document.getElementById('mmabc-chat-body'); var chatInput = document.getElementById('mmabc-chat-input'); var sendBtn = document.getElementById('mmabc-chat-send-btn'); var isOpen = false; var hasOpened = false; function toggleChat() { isOpen = !isOpen; if (isOpen) { chatWindow.classList.add('open'); bubble.style.display = 'none'; if (!hasOpened) { hasOpened = true; showWelcome() } chatInput.focus() } else { chatWindow.classList.remove('open'); bubble.style.display = 'flex' } } bubble.addEventListener('click', toggleChat); closeBtn.addEventListener('click', toggleChat); function addMessage(text, type) { var div = document.createElement('div'); div.className = 'mmabc-msg ' + (type === 'user' ? 'mmabc-msg-user' : 'mmabc-msg-bot'); div.textContent = text; chatBody.appendChild(div); scrollToBottom(); return div } function addZaloButton() { var wrap = document.createElement('div'); wrap.style.alignSelf = 'flex-start'; wrap.innerHTML = '<a href="https://zalo.me/0825797789" target="_blank" class="mmabc-zalo-btn">💬 Nhắn Zalo để tư vấn thêm</a>'; chatBody.appendChild(wrap); scrollToBottom() } function showTyping() { var div = document.createElement('div'); div.className = 'mmabc-typing'; div.id = 'mmabc-typing-indicator'; div.innerHTML = '<div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div>'; chatBody.appendChild(div); scrollToBottom() } function removeTyping() { var el = document.getElementById('mmabc-typing-indicator'); if (el) el.remove() } function scrollToBottom() { setTimeout(function () { chatBody.scrollTop = chatBody.scrollHeight }, 50) } function showWelcome() { addMessage('Xin chào! 👋 Mình là trợ lý tư vấn của lớp toán tư duy MMABC Đông Mỹ. Ba/mẹ muốn hỏi gì ạ?', 'bot'); var chipsWrap = document.createElement('div'); chipsWrap.className = 'mmabc-chips'; chipsWrap.style.alignSelf = 'flex-start'; faqData.forEach(function (faq) { var btn = document.createElement('button'); btn.className = 'mmabc-chip'; btn.textContent = faq.q; btn.addEventListener('click', function () { handleFAQ(faq) }); chipsWrap.appendChild(btn) }); chatBody.appendChild(chipsWrap); scrollToBottom() } function handleFAQ(faq) { addMessage(faq.q, 'user'); addMessage(faq.a, 'bot'); addZaloButton() } function handleSend() { var text = chatInput.value.trim(); if (!text) return; chatInput.value = ''; addMessage(text, 'user'); sendBtn.disabled = true; showTyping(); fetch(GEMINI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ system_instruction: { parts: [{ text: systemPrompt }] }, contents: [{ parts: [{ text: text }] }] }) }).then(function (r) { return r.json() }).then(function (data) { removeTyping(); var reply = ''; try { reply = data.candidates[0].content.parts[0].text } catch (e) { reply = 'Xin lỗi, mình chưa trả lời được câu này. Ba/mẹ vui lòng nhắn Zalo 0825 797 789 để được tư vấn trực tiếp nhé!' } addMessage(reply, 'bot'); addZaloButton(); sendBtn.disabled = false }).catch(function () { removeTyping(); addMessage('Xin lỗi, có lỗi xảy ra. Ba/mẹ vui lòng nhắn Zalo 0825 797 789 để được tư vấn trực tiếp nhé!', 'bot'); addZaloButton(); sendBtn.disabled = false }) } sendBtn.addEventListener('click', handleSend); chatInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); handleSend() } }) })();
   </script>
   <!-- END: Chatbot Widget -->
 
