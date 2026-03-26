@@ -1,4 +1,4 @@
-# Tổng hợp nội dung văn bản Website Toán Tư Duy MMABC Đông Mỹ
+﻿# Tổng hợp nội dung văn bản Website Toán Tư Duy MMABC Đông Mỹ
 
 ## Common Elements (Menu, Footer, Chatbot)
 > Source: Các file HTML (`index.html`, `ve-chung-toi.html`, v.v.)
@@ -29,7 +29,7 @@
   - Học phí bao nhiêu? -> Học phí từ 499.000đ/tháng, gồm 8 buổi học. Buổi đầu tiên học thử hoàn toàn miễn phí!
   - Lịch học thế nào? -> Lớp học 8 buổi/tháng, lộ trình 24 buổi trong 3 tháng. Mỗi buổi 90 phút.
   - Con mấy tuổi học được? -> Lớp MMABC nhận trẻ từ 4 đến 12 tuổi. Bé nào cũng có thể bắt đầu!
-  - Lớp có mấy học sinh? -> Tối đa 8 học sinh mỗi lớp — đảm bảo cô có thể theo sát từng bé.
+  - Lớp có mấy học sinh? -> Tối đa 12 bạn mỗi lớp — đảm bảo cô có thể theo sát từng bé.
   - Đăng ký học thử như thế nào? -> Ba/mẹ điền form trên trang chủ hoặc nhắn Zalo 0825 797 789. Cô sẽ liên hệ trong 24 giờ!
   - Lớp ở đâu? -> Lớp tại Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội. Ba/mẹ có thể nhắn Zalo để được chỉ đường!
 - Gợi ý: "💬 Nhắn Zalo để tư vấn thêm"
@@ -47,7 +47,7 @@
 
 **Tính năng / Điểm nổi bật (Features):**
 - Không chỉ học toán — học cách tư duy
-- Lớp tối đa 8 học sinh: Cô giáo sát sao từng em, không để bạn nào lại phía sau. Mỗi học sinh có lộ trình riêng phù hợp năng lực.
+- Lớp tối đa 12 bạn: Cô giáo sát sao từng em, không để bạn nào lại phía sau. Mỗi học sinh có lộ trình riêng phù hợp năng lực.
 - Báo cáo tiến độ hàng tháng: Ba mẹ biết rõ con đang học đến đâu, cần hỗ trợ gì thông qua các bản đánh giá chi tiết và họp phụ huynh.
 - Học thử miễn phí buổi đầu: Con trải nghiệm trước không gian học tập vui nhộn, gia đình quyết định sau khi thấy con yêu thích.
 
@@ -204,3 +204,4 @@
 - Ba/mẹ có bạn bè cũng đang tìm lớp toán cho con?
 - Chia sẻ qua Zalo | Chia sẻ Facebook
 - Quay về trang chủ
+

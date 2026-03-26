@@ -1,4 +1,4 @@
-# AGENT.MD — MMABC Đông Mỹ Website
+﻿# AGENT.MD — MMABC Đông Mỹ Website
 > Đọc file này TRƯỚC KHI làm bất cứ thứ gì. Không hỏi lại những gì đã có ở đây.
 
 ---
@@ -86,7 +86,7 @@ border-radius: 20px           /* pill buttons */
 Giáo viên:    Nguyễn Thị Bích Liên
 Kinh nghiệm:  3 năm giảng dạy toán tư duy
 Độ tuổi:      4–12 tuổi
-Sĩ số:        Tối đa 8 học sinh / lớp
+Sĩ số:        Tối đa 12 bạn / lớp
 Học phí:      Từ 499.000đ / tháng
 Lộ trình:     24 buổi · 3 tháng · 90 phút/buổi
 Học thử:      Miễn phí buổi đầu — không cam kết
@@ -211,3 +211,4 @@ git push origin main
 
 ### v1.2 — Tháng 3/2026
 - ✅ Audit fixes: font, màu, OG tags, stray text, cam-on.html
+
