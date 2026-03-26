@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="vi">
 
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Quicksand:wght@500;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
     rel="stylesheet" />
   <script>
     tailwind.config = {
@@ -30,8 +30,8 @@
             brandDeepOrange: '#C95B00',
           },
           fontFamily: {
-            heading: ['Quicksand', 'sans-serif'],
-            body: ['Nunito', 'sans-serif'],
+            heading: ['Public Sans', 'sans-serif'],
+            body: ['Public Sans', 'sans-serif'],
           },
           borderRadius: {
             'brand': '16px',
@@ -211,7 +211,7 @@
   </style>
   <style data-purpose="custom-typography">
     body {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Public Sans', sans-serif;
       font-size: 15px;
       line-height: 1.7;
       color: #5A6A7A;
@@ -222,7 +222,7 @@
     h2,
     h3,
     h4 {
-      font-family: 'Quicksand', sans-serif;
+      font-family: 'Public Sans', sans-serif;
       font-weight: 700;
       color: #1A2B3C;
     }
@@ -304,6 +304,7 @@
         </div>
       </a>
       <div class="site-nav-links">
+        <a href="index.html" class="nav-active">Trang chủ</a>
         <a href="ve-chung-toi.html">Giới thiệu</a>
         <a href="goc-hoc-tap.html">Góc học tập</a>
         <a href="#hoc-phi">Học phí</a>
@@ -318,6 +319,7 @@
       </button>
     </nav>
     <div id="site-mobile-menu" class="site-nav-mobile">
+      <a href="index.html" class="nav-active">Trang chủ</a>
       <a href="ve-chung-toi.html">Giới thiệu</a>
       <a href="goc-hoc-tap.html">Góc học tập</a>
       <a href="#lich-hoc">Lịch học</a>
@@ -1202,6 +1204,22 @@
   </script>
   <!-- END: Chatbot Widget -->
 
+
+  <script>
+  (function() {
+    if (window.location.search.includes('fbclid') || 
+        window.location.search.includes('utm_')) {
+      var url = new URL(window.location.href);
+      url.searchParams.delete('fbclid');
+      url.searchParams.delete('utm_source');
+      url.searchParams.delete('utm_medium');
+      url.searchParams.delete('utm_campaign');
+      url.searchParams.delete('utm_content');
+      url.searchParams.delete('utm_term');
+      window.history.replaceState({}, '', url.toString());
+    }
+  })();
+  </script>
 </body>
 
 </html>

@@ -20,12 +20,17 @@
 
 ```
 /
-├── index.html              # Landing page (trang chính)
-├── ve-chung-toi.html       # Giới thiệu giáo viên & phương pháp
-├── goc-hoc-tap.html        # Blog / góc học tập
-├── ket-qua.html            # Kết quả học sinh & social proof
-├── cam-on.html             # Thank you page (sau khi đăng ký)
-├── agent.md                # File hướng dẫn cho AI Agent
+├── index.html                          # Landing page (trang chính)
+├── ve-chung-toi.html                   # Giới thiệu giáo viên & phương pháp
+├── goc-hoc-tap.html                    # Blog / góc học tập (danh sách bài)
+├── ket-qua.html                        # Kết quả học sinh & social proof
+├── cam-on.html                         # Thank you page (sau khi đăng ký)
+├── bai-viet-mau.html                   # Template bài viết blog (tham khảo)
+├── toan-tu-duy-mmabc-la-gi.html        # Bài viết: Toán tư duy MMABC là gì?
+├── con-ghet-toan-ba-me-nen-lam-gi.html # Bài viết: Con nói "con ghét toán"
+├── do-vui-toan-tu-duy.html             # Bài viết: 3 câu đố toán tư duy
+├── netlify.toml                        # Netlify config (publish dir & redirect)
+├── agent.md                            # File hướng dẫn cho AI Agent
 └── images/
     ├── logo.png             # Logo trung tâm (chatbot avatar)
     ├── favicon-round.png    # Favicon tròn cho tab browser
@@ -56,31 +61,18 @@ border-radius: 20px           /* pill buttons */
 
 ---
 
-## 4. NAVBAR — ĐỒNG NHẤT 5 TRANG
+## 4. NAVBAR — ĐỒNG NHẤT TẤT CẢ TRANG
 
 ```html
-<!-- CẤU TRÚC CHUẨN — copy y hệt vào mọi trang -->
-<header class="site-nav">
-  <nav class="site-nav-inner">
-    <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
-      <span style="font-size:2rem; font-weight:700; color:#C95B00;">MMABC</span>
-      <div style="width:1.5px; height:40px; background:#FFD9B0;"></div>
-      <div style="display:flex; flex-direction:column; gap:2px;">
-        <span style="font-size:14px; font-weight:600; color:#1A2B3C;">Đông Mỹ</span>
-        <span style="font-size:11px; color:#FF7A2F; font-weight:500; max-width:280px;">
-          Toán tư duy tích hợp toán trường MMABC · Luyện chữ đẹp · Hành trang cho bé vào lớp 1
-        </span>
-      </div>
-    </a>
-    <div class="site-nav-links">
-      <a href="ve-chung-toi.html">Giới thiệu</a>
-      <a href="goc-hoc-tap.html">Góc học tập</a>
-      <a href="index.html#hoc-phi">Học phí</a>
-      <a href="ket-qua.html">Kết quả</a>
-      <a href="index.html#dang-ky" class="site-nav-cta">Đăng ký học thử</a>
-    </div>
-  </nav>
-</header>
+<!-- CẤU TRÚC CHUẨN — thứ tự link: Trang chủ → Giới thiệu → Góc học tập → Học phí → Kết quả → CTA -->
+<div class="site-nav-links">
+  <a href="index.html">Trang chủ</a>           <!-- nav-active trên index.html -->
+  <a href="ve-chung-toi.html">Giới thiệu</a>   <!-- nav-active trên ve-chung-toi.html -->
+  <a href="goc-hoc-tap.html">Góc học tập</a>   <!-- nav-active trên goc-hoc-tap & bài viết con -->
+  <a href="index.html#hoc-phi">Học phí</a>
+  <a href="ket-qua.html">Kết quả</a>
+  <a href="index.html#dang-ky" class="site-nav-cta">Đăng ký học thử</a>
+</div>
 
 <!-- ACTIVE STATE: thêm class="nav-active" vào link tương ứng với trang hiện tại -->
 <!-- cam-on.html: không có active state -->
@@ -136,8 +128,8 @@ Facebook:     https://www.facebook.com/mmabcdongmy
 ## 8. CHATBOT
 
 ```javascript
-// Có trên cả 5 trang — id: mmabc-chatbot-bubble
-// Gemini API Key: AIzaSyBqkGZf9TQZR-aHXmS73k17Kjcj0ffJGrg
+// Có trên tất cả trang (kể cả các trang bài viết) — id: mmabc-chatbot-bubble
+// Gemini API Key: AIzaSyBqkGZf9TQZR-aHXmS73k17Kjcj0ffJGrg  ← CẦN CHUYỂN SANG BACKEND PROXY
 // Model: gemini-2.0-flash (1500 req/ngày free)
 // FAQ cố định: 6 câu (không gọi API)
 // Fallback: Zalo 0825 797 789
@@ -152,7 +144,7 @@ Facebook:     https://www.facebook.com/mmabcdongmy
 id="hero"       → hero section
 id="gioi-thieu" → section giới thiệu (phương pháp/đặc điểm)
 id="lich-hoc"   → section giáo viên chủ nhiệm & lịch học
-id="hoc-phi"    → section học phí  
+id="hoc-phi"    → section học phí
 id="dang-ky"    → form đăng ký học thử
 ```
 
@@ -167,6 +159,7 @@ id="dang-ky"    → form đăng ký học thử
 ✓ Khi sửa 1 trang → kiểm tra navbar có đúng cấu trúc mục 4 không
 ✓ Khi thêm section mới → dùng bg-[#FFF8F0] hoặc bg-white xen kẽ
 ✓ Khi thêm button → dùng bg-[#FF7A2F] text-white rounded-full
+✓ Bài viết mới → tạo file riêng, cập nhật card trong goc-hoc-tap.html
 
 ✗ KHÔNG thêm font mới
 ✗ KHÔNG dùng gradient (trừ hero đã có sẵn)
@@ -192,12 +185,29 @@ git push origin main
 ## 12. VIỆC CÒN LẠI (TODO)
 
 - [ ] Xóa `mode: 'no-cors'` trong form fetch sau khi Netlify live
-- [x] Thêm ảnh giáo viên Nguyễn Thị Bích Liên vào ve-chung-toi.html
-- [ ] Tạo _private/index.html — dashboard quản trị
-- [ ] Tạo bai-viet-mau.html — template bài viết blog
-- [ ] Điền thông tin lịch học cụ thể (thứ mấy, giờ nào)
 - [ ] Test form sau khi Netlify live
-- [ ] Đồng bộ font Public Sans cho index.html (hiện đang dùng Nunito và Quicksand)
+- [ ] Tạo _private/index.html — dashboard quản trị
+- [ ] Điền thông tin lịch học cụ thể (thứ mấy, giờ nào)
+- [ ] Chuyển Gemini API key sang backend proxy (bảo mật)
+- [ ] Thêm ảnh thật vào 3 bài viết (placeholder hiện dùng emoji)
+- [x] Thêm ảnh giáo viên Nguyễn Thị Bích Liên vào ve-chung-toi.html
+- [x] Tạo bai-viet-mau.html — template bài viết blog
+- [x] Đồng bộ font Public Sans cho index.html
+- [x] Thêm OG meta tags cho tất cả trang
+- [x] Sửa màu rogue #ec5b13 → #FF7A2F trong cam-on.html
+- [x] Thêm "Trang chủ" làm link đầu tiên trong navbar tất cả trang
+- [x] Tạo netlify.toml (publish dir + redirect rule)
+- [x] Tạo toan-tu-duy-mmabc-la-gi.html
+- [x] Tạo con-ghet-toan-ba-me-nen-lam-gi.html
+- [x] Tạo do-vui-toan-tu-duy.html
 
 ---
-*Cập nhật lần cuối: Tháng 3/2026 — v1.1*
+*Cập nhật lần cuối: Tháng 3/2026 — v1.3*
+
+## CHANGELOG
+
+### v1.3 — Tháng 3/2026
+- ✅ 3 bài viết mới, navbar thêm Trang chủ, netlify.toml
+
+### v1.2 — Tháng 3/2026
+- ✅ Audit fixes: font, màu, OG tags, stray text, cam-on.html
