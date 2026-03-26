@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="icon" type="image/png" href="images/favicon-round.png">
+  <link rel="apple-touch-icon" href="images/favicon-round.png">
+  <title>5 Trò Chơi Toán Học Ba Mẹ Có Thể Chơi Cùng Con Mỗi Tối - MMABC Đông Mỹ</title>
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF7A2F',
+              navy: '#1A2B3C',
+              yellow: '#FFD580',
+              mint: '#A8E6CF',
+              ivory: '#FFF8F0',
+              'orange-light': '#FFF0E0',
+              'orange-border': '#FFD9B0',
+              'deep-orange': '#C95B00'
+            }
+          },
+          fontFamily: {
+            sans: ['Public Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Navbar Style -->
+  <style data-purpose="navbar">
+    html { scroll-behavior: smooth; }
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    a, button, .card, [class*="hover"] { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); will-change: auto; }
+    .site-nav { transition: box-shadow 0.2s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100; background: #FFFFFF; border-bottom: 0.5px solid #FFD9B0; }
+    img { image-rendering: -webkit-optimize-contrast; transform: translateZ(0); backface-visibility: hidden; }
+    *:focus { outline: none; box-shadow: 0 0 0 2px rgba(255, 122, 47, 0.3); transition: box-shadow 0.15s ease; }
+    .site-nav-inner { max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; }
+    .site-nav-logo { font-size: 1.5rem; font-weight: 500; color: #C95B00; text-decoration: none; }
+    .site-nav-links { display: flex; align-items: center; gap: 24px; }
+    .site-nav-links a { text-decoration: none; color: #1A2B3C; font-weight: 600; font-size: 15px; transition: color 0.2s; }
+    .site-nav-links a:hover { color: #FF7A2F; }
+    .site-nav-links a.nav-active { color: #FF7A2F; border-bottom: 2px solid #FF7A2F; padding-bottom: 2px; }
+    .site-nav-cta { background: #FF7A2F !important; color: #fff !important; border-radius: 20px !important; padding: 12px 28px !important; font-weight: 700 !important; }
+    .site-nav-cta:hover { box-shadow: 0 4px 12px rgba(255, 122, 47, 0.3); }
+    .site-nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; color: #1A2B3C; }
+    .site-nav-mobile { display: none; background: #fff; border-top: 1px solid #FFD9B0; padding: 16px 24px; flex-direction: column; gap: 12px; }
+    .site-nav-mobile.show { display: flex; }
+    .site-nav-mobile a { text-decoration: none; color: #1A2B3C; font-weight: 600; font-size: 15px; padding: 8px 0; }
+    .site-nav-mobile a:hover, .site-nav-mobile a.nav-active { color: #FF7A2F; }
+    .site-nav-mobile .site-nav-cta { display: block; text-align: center; margin-top: 8px; }
+    @media (max-width: 768px) { .site-nav-links { display: none !important; } .site-nav-mobile-btn { display: block !important; } }
+  </style>
+
+  <style data-purpose="article-styles">
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1A2B3C;
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+      color: #5A6A7A;
+    }
+    .article-content ul {
+      margin-bottom: 1.5rem;
+      margin-left: 1.5rem;
+      list-style-type: disc;
+      color: #5A6A7A;
+    }
+    .article-content li {
+      margin-bottom: 0.5rem;
+      line-height: 1.8;
+    }
+  </style>
+
+</head>
+<body class="bg-brand-ivory text-brand-navy font-sans antialiased">
+  
+  <!-- BEGIN: MainHeader -->
+  <header class="site-nav">
+    <nav class="site-nav-inner">
+      <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0;">
+        <span style="font-size:2rem; font-weight:700; color:#C95B00; line-height:1; letter-spacing:-0.5px;">MMABC</span>
+        <div style="width:1.5px; height:40px; background:#FFD9B0; flex-shrink:0;"></div>
+        <div style="display:flex; flex-direction:column; gap:2px;">
+          <span style="font-size:14px; font-weight:600; color:#1A2B3C; line-height:1;">Đông Mỹ</span>
+          <span style="font-size:11px; color:#FF7A2F; font-weight:500; line-height:1.3; max-width:280px;">
+            Toán tư duy tích hợp toán trường MMABC · Luyện chữ đẹp · Hành trang cho bé vào lớp 1
+          </span>
+        </div>
+      </a>
+      <div class="site-nav-links">
+        <a href="ve-chung-toi.html">Giới thiệu</a>
+        <a href="goc-hoc-tap.html" class="nav-active">Góc học tập</a>
+        <a href="index.html#hoc-phi">Học phí</a>
+        <a href="ket-qua.html">Kết quả</a>
+        <a href="index.html#dang-ky" class="site-nav-cta">Đăng ký học thử</a>
+      </div>
+      <button class="site-nav-mobile-btn" onclick="document.getElementById('site-mobile-menu').classList.toggle('show')">
+        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </nav>
+    <div id="site-mobile-menu" class="site-nav-mobile">
+      <a href="ve-chung-toi.html">Giới thiệu</a>
+      <a href="goc-hoc-tap.html" class="nav-active">Góc học tập</a>
+      <a href="index.html#hoc-phi">Học phí</a>
+      <a href="ket-qua.html">Kết quả</a>
+      <a href="index.html#dang-ky" class="site-nav-cta">Đăng ký học thử</a>
+    </div>
+  </header>
+  <!-- END: MainHeader -->
+
+  <main class="py-12 bg-white min-h-screen">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6">
+      
+      <!-- Breadcrumb & Header -->
+      <header class="mb-10 text-center">
+        <nav class="flex justify-center text-sm text-gray-500 mb-6 font-medium">
+          <a class="hover:text-brand-orange transition-colors" href="index.html">Trang chủ</a>
+          <span class="mx-2">›</span>
+          <a class="hover:text-brand-orange transition-colors" href="goc-hoc-tap.html">Góc học tập</a>
+          <span class="mx-2">›</span>
+          <span class="text-brand-orange">Mẹo tại nhà</span>
+        </nav>
+        
+        <span class="inline-block bg-brand-orange text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-5 shadow-sm">
+          Mẹo tại nhà
+        </span>
+        
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy leading-tight mb-6">
+          5 Trò Chơi Toán Học Ba Mẹ Có Thể Chơi Cùng Con Mỗi Tối
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto italic font-medium leading-relaxed">
+          Tận dụng những vật dụng quen thuộc trong nhà để giúp con yêu thích các con số một cách tự nhiên – không cần giáo trình, không cần ép buộc, chỉ cần 15–20 phút mỗi tối cùng ba mẹ!
+        </p>
+      </header>
+
+      <!-- Hero Image Placeholder -->
+      <div class="w-full h-64 md:h-80 bg-brand-orange-light rounded-3xl flex items-center justify-center border-2 border-dashed border-brand-orange-border mb-12 shadow-inner">
+        <div class="text-center text-brand-orange opacity-70">
+          <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span class="font-medium font-mono text-sm">[Ảnh minh họa: banner-hero.jpg]</span>
+        </div>
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-content">
+        
+        <p class="text-xl font-bold text-brand-navy mb-4">Mở đầu</p>
+        <p>Nhiều ba mẹ lo lắng khi thấy con "sợ" toán hoặc không mấy hứng thú với các con số. Nhưng thực tế, toán học không nhất thiết phải bắt đầu từ sách vở. Chỉ với những vật dụng đơn giản như thìa, cúc áo hay thậm chí là… đôi tất, ba mẹ hoàn toàn có thể biến giờ chơi buổi tối thành khoảnh khắc học tập đầy tiếng cười.</p>
+        <p>Dưới đây là 5 trò chơi toán học tại nhà dễ thực hiện, giúp con làm quen với số đếm, phép tính và tư duy logic một cách tự nhiên nhất.</p>
+
+        <!-- Tip Box -->
+        <div class="bg-[#F8FAFC] border-l-4 border-[#3B82F6] p-5 rounded-r-xl my-8">
+          <p class="m-0 text-[#1E293B] flex items-start gap-2">
+            <span class="text-xl leading-none">📝</span> 
+            <span>Mỗi trò chơi đều có gắn độ tuổi gợi ý để ba mẹ dễ lựa chọn phù hợp với con. Tuy nhiên, mỗi bé có tốc độ phát triển khác nhau – ba mẹ hãy linh hoạt điều chỉnh độ khó theo khả năng thực tế của con nhé!</span>
+          </p>
+        </div>
+
+        <hr class="border-brand-orange-border my-12 opacity-50" />
+
+        <!-- Trò 1 -->
+        <h2>🎲 Trò 1: "Siêu thị mini tại nhà"</h2>
+        
+        <div class="bg-brand-orange-light p-6 rounded-2xl mb-8 border border-brand-orange-border/30">
+          <div class="flex items-start md:items-center flex-col md:flex-row gap-2 mb-4">
+            <span class="font-bold text-brand-navy flex items-center gap-2">
+              <span class="text-xl leading-none">🎯</span> Phù hợp:
+            </span> 
+            <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold text-brand-deep-orange border border-brand-orange-border">Bé từ 4–8 tuổi</span>
+          </div>
+          <div>
+            <span class="font-bold text-brand-navy flex items-center gap-2 mb-2">
+              <span class="text-xl leading-none">🛠️</span> Vật dụng cần có:
+            </span>
+             Một vài món đồ trong nhà (trái cây, hộp sữa, bánh kẹo…), giấy nhỏ ghi giá, tiền giấy đồ chơi (hoặc tự cắt từ giấy màu).
+          </div>
+        </div>
+
+        <p class="font-bold text-brand-navy">Cách chơi:</p>
+        <ul>
+          <li>Ba mẹ đóng vai người bán hàng, con đóng vai người mua.</li>
+          <li>Mỗi món đồ được dán một mức giá đơn giản (ví dụ: 1 quả cam = 3 đồng, 1 hộp sữa = 5 đồng).</li>
+          <li>Con phải đếm tiền, tính tổng và thậm chí tính tiền thừa khi mua hàng.</li>
+        </ul>
+
+        <p class="font-bold text-brand-navy mt-6">Lợi ích:</p>
+        <ul>
+          <li>Luyện phép cộng, phép trừ trong tình huống thực tế.</li>
+          <li>Phát triển kỹ năng giao tiếp và tư duy quản lý tiền bạc từ nhỏ.</li>
+        </ul>
+
+        <div class="bg-[#FFFBEB] border-l-4 border-brand-yellow p-5 rounded-r-xl my-8">
+          <p class="m-0 text-[#854D0E] flex items-start gap-2">
+            <span class="text-xl leading-none">💡</span> 
+            <span><span class="font-bold">Mẹo nhỏ:</span> Để tăng độ khó, ba mẹ có thể đưa ra chương trình "khuyến mãi mua 2 tặng 1" để con tập so sánh và tính toán phức tạp hơn!</span>
+          </p>
+        </div>
+        
+        <!-- Image placeholder game 1 -->
+        <div class="w-full h-56 bg-gray-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 mt-8 mb-12">
+          <span class="text-gray-400 font-mono text-sm">[Ảnh minh họa: sieu-thi-mini.jpg]</span>
+        </div>
+
+        <hr class="border-brand-orange-border my-12 opacity-50" />
+
+        <!-- Trò 2 -->
+        <h2>🎲 Trò 2: "Thợ săn số quanh nhà"</h2>
+        
+        <div class="bg-brand-orange-light p-6 rounded-2xl mb-8 border border-brand-orange-border/30">
+          <div class="flex items-start md:items-center flex-col md:flex-row gap-2 mb-4">
+            <span class="font-bold text-brand-navy flex items-center gap-2">
+              <span class="text-xl leading-none">🎯</span> Phù hợp:
+            </span> 
+            <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold text-brand-deep-orange border border-brand-orange-border">Bé từ 3–6 tuổi</span>
+          </div>
+          <div>
+            <span class="font-bold text-brand-navy flex items-center gap-2 mb-2">
+              <span class="text-xl leading-none">🛠️</span> Vật dụng cần có:
+            </span>
+             Giấy, bút và… đôi mắt tinh tường!
+          </div>
+        </div>
+
+        <p class="font-bold text-brand-navy">Cách chơi:</p>
+        <ul>
+          <li>Ba mẹ ra thử thách: "Con hãy tìm tất cả những con số trong nhà mình!"</li>
+          <li>Con sẽ đi khắp nhà, tìm số trên đồng hồ, điều khiển tivi, lịch treo tường, nhãn hộp ngũ cốc, cân sức khỏe…</li>
+          <li>Con ghi lại các con số tìm được, sau đó cùng ba mẹ sắp xếp từ nhỏ đến lớn hoặc phân loại theo chẵn – lẻ.</li>
+        </ul>
+
+        <p class="font-bold text-brand-navy mt-6">Lợi ích:</p>
+        <ul>
+          <li>Giúp con nhận biết số trong đời sống hàng ngày.</li>
+          <li>Rèn khả năng quan sát và phân loại.</li>
+        </ul>
+
+        <div class="bg-[#FFFBEB] border-l-4 border-brand-yellow p-5 rounded-r-xl my-8">
+          <p class="m-0 text-[#854D0E] flex items-start gap-2">
+            <span class="text-xl leading-none">💡</span> 
+            <span><span class="font-bold">Nâng cấp:</span> Ba mẹ có thể biến trò này thành hoạt động hợp tác – cả nhà cùng một đội, đặt mục tiêu "Chúng mình tìm đủ 20 con số nhé!" để con cảm thấy được đồng hành thay vì bị áp lực thi đua.</span>
+          </p>
+        </div>
+
+        <!-- Image placeholder game 2 -->
+        <div class="w-full h-56 bg-gray-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 mt-8 mb-12">
+          <span class="text-gray-400 font-mono text-sm">[Ảnh minh họa: tho-san-so.jpg]</span>
+        </div>
+
+        <hr class="border-brand-orange-border my-12 opacity-50" />
+
+        <!-- Trò 3 -->
+        <h2>🎲 Trò 3: "Gieo số – Ai tính nhanh hơn"</h2>
+
+        <div class="bg-brand-orange-light p-6 rounded-2xl mb-8 border border-brand-orange-border/30">
+          <div class="flex items-start md:items-center flex-col md:flex-row gap-2 mb-4">
+            <span class="font-bold text-brand-navy flex items-center gap-2">
+              <span class="text-xl leading-none">🎯</span> Phù hợp:
+            </span> 
+            <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold text-brand-deep-orange border border-brand-orange-border">Bé từ 5–8 tuổi</span>
+          </div>
+          <div>
+            <span class="font-bold text-brand-navy flex items-center gap-2 mb-2">
+              <span class="text-xl leading-none">🛠️</span> Vật dụng cần có:
+            </span>
+             2 viên xúc xắc đồ chơi giáo dục. (Nếu không có xúc xắc, ba mẹ có thể viết số 1–6 vào 6 mảnh giấy nhỏ, gấp lại rồi cho con bốc thăm – hiệu quả tương tự!)
+          </div>
+        </div>
+
+        <p class="font-bold text-brand-navy">Cách chơi:</p>
+        <ul>
+          <li>Mỗi người lần lượt gieo 2 viên xúc xắc (hoặc bốc 2 mảnh giấy số).</li>
+          <li>Cộng (hoặc trừ) hai số hiện ra.</li>
+          <li>Ai nói đáp án đúng và nhanh hơn sẽ ghi được 1 điểm.</li>
+          <li>Chơi 10 lượt, ai nhiều điểm hơn thắng cuộc!</li>
+        </ul>
+
+        <p class="font-bold text-brand-navy mt-6">Lợi ích:</p>
+        <ul>
+          <li>Luyện phản xạ tính nhẩm nhanh.</li>
+          <li>Tạo không khí vui vẻ, kích thích tinh thần học hỏi.</li>
+        </ul>
+
+        <div class="bg-[#FFFBEB] border-l-4 border-brand-yellow p-5 rounded-r-xl my-8 flex flex-col gap-4">
+          <p class="m-0 text-[#854D0E] flex items-start gap-2">
+            <span class="text-xl leading-none">💡</span> 
+            <span><span class="font-bold">Mẹo:</span> Với bé 6–8 tuổi, ba mẹ có thể dùng phép nhân hoặc đặt quy tắc "số lớn trừ số nhỏ" để tăng thử thách.</span>
+          </p>
+          <p class="m-0 text-[#854D0E] flex items-start gap-2">
+            <span class="text-xl leading-none">🤝</span> 
+            <span><span class="font-bold">Lưu ý:</span> Nếu con chưa quen hoặc dễ nản khi thua, ba mẹ hãy chuyển sang chơi hợp tác – cả nhà cùng một đội, đặt mục tiêu "Chúng mình trả lời đúng 8/10 câu nhé!" Điều quan trọng là con thấy VUI, không phải thắng–thua.</span>
+          </p>
+        </div>
+        
+        <!-- Image placeholder game 3 -->
+        <div class="w-full h-56 bg-gray-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 mt-8 mb-12">
+          <span class="text-gray-400 font-mono text-sm">[Ảnh minh họa: xuc-xac-toan-hoc.jpg]</span>
+        </div>
+
+        <hr class="border-brand-orange-border my-12 opacity-50" />
+
+        <!-- Trò 4 -->
+        <h2>🎲 Trò 4: "Xây tháp đếm ngược"</h2>
+
+        <div class="bg-brand-orange-light p-6 rounded-2xl mb-8 border border-brand-orange-border/30">
+          <div class="flex items-start md:items-center flex-col md:flex-row gap-2 mb-4">
+            <span class="font-bold text-brand-navy flex items-center gap-2">
+              <span class="text-xl leading-none">🎯</span> Phù hợp:
+            </span> 
+            <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold text-brand-deep-orange border border-brand-orange-border">Bé từ 3–6 tuổi</span>
+          </div>
+          <div>
+            <span class="font-bold text-brand-navy flex items-center gap-2 mb-2">
+              <span class="text-xl leading-none">🛠️</span> Vật dụng cần có:
+            </span>
+             Khối gỗ xếp hình, cốc nhựa, hoặc hộp giấy nhỏ.
+          </div>
+        </div>
+
+        <p class="font-bold text-brand-navy">Cách chơi:</p>
+        <ul>
+          <li>Ba mẹ yêu cầu con xây một tòa tháp theo quy tắc: tầng dưới cùng có 10 khối, tầng tiếp theo 9 khối, rồi 8 khối… cho đến 1 khối trên đỉnh.</li>
+          <li>Vừa xếp, con vừa đếm ngược từ 10 về 1.</li>
+          <li>Sau khi xây xong, ba mẹ hỏi: "Tổng cộng con đã dùng bao nhiêu khối?"</li>
+        </ul>
+
+        <p class="font-bold text-brand-navy mt-6">Lợi ích:</p>
+        <ul>
+          <li>Rèn luyện đếm ngược, đếm tổng và tư duy quy luật số.</li>
+          <li>Kết hợp vận động tay – mắt, phát triển kỹ năng vận động tinh.</li>
+        </ul>
+
+        <div class="bg-[#FFFBEB] border-l-4 border-brand-yellow p-5 rounded-r-xl my-8">
+          <p class="m-0 text-[#854D0E] flex items-start gap-2">
+            <span class="text-xl leading-none">💡</span> 
+            <span><span class="font-bold">Mở rộng:</span> Hỏi con "Nếu bỏ bớt tầng 5 thì còn bao nhiêu khối?" để luyện phép trừ một cách sáng tạo.</span>
+          </p>
+        </div>
+
+        <!-- Image placeholder game 4 -->
+        <div class="w-full h-56 bg-gray-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 mt-8 mb-12">
+          <span class="text-gray-400 font-mono text-sm">[Ảnh minh họa: xay-thap-khoi-go.jpg]</span>
+        </div>
+
+        <hr class="border-brand-orange-border my-12 opacity-50" />
+
+        <!-- Trò 5 -->
+        <h2>🎲 Trò 5: "Đầu bếp nhí – Toán học trong bếp"</h2>
+
+        <div class="bg-brand-orange-light p-6 rounded-2xl mb-8 border border-brand-orange-border/30">
+          <div class="flex items-start md:items-center flex-col md:flex-row gap-2 mb-4">
+            <span class="font-bold text-brand-navy flex items-center gap-2">
+              <span class="text-xl leading-none">🎯</span> Phù hợp:
+            </span> 
+            <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold text-brand-deep-orange border border-brand-orange-border">Bé từ 4–8 tuổi</span>
+          </div>
+          <div>
+            <span class="font-bold text-brand-navy flex items-center gap-2 mb-2">
+              <span class="text-xl leading-none">🛠️</span> Vật dụng cần có:
+            </span>
+             Nguyên liệu đơn giản (bột, trứng, sữa, trái cây…), cốc đong, thìa đo lường.
+          </div>
+        </div>
+
+        <!-- Warning Block -->
+        <div class="bg-[#FEF2F2] border-l-4 border-[#EF4444] p-5 rounded-r-xl my-8 shadow-sm">
+          <p class="m-0 text-[#991B1B] font-bold mb-3 flex items-center gap-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            LƯU Ý AN TOÀN:
+          </p>
+          <p class="m-0 text-[#7F1D1D] leading-relaxed">
+            Ba mẹ luôn ở bên cạnh giám sát khi cho con vào bếp. Hãy để con thực hiện các bước an toàn như đong bột, đếm trứng, trộn nguyên liệu, rửa trái cây. Tuyệt đối không để con tiếp xúc với bếp lửa, lò nướng, nước sôi hoặc các vật sắc nhọn như dao, kéo. An toàn của con luôn là ưu tiên hàng đầu!
+          </p>
+        </div>
+
+        <p class="font-bold text-brand-navy">Cách chơi:</p>
+        <ul>
+          <li>Rủ con cùng vào bếp làm một món đơn giản (pha nước cam, trộn salad trái cây, làm bánh không cần nướng…).</li>
+          <li>Nhờ con đong 2 cốc bột, đếm 3 quả trứng, đổ 1/2 cốc sữa…</li>
+          <li>Hỏi con: "Nếu mình cần gấp đôi công thức thì dùng mấy quả trứng?"</li>
+        </ul>
+
+        <p class="font-bold text-brand-navy mt-6">Lợi ích:</p>
+        <ul>
+          <li>Giúp con hiểu khái niệm đo lường, phân số, nhân đôi qua trải nghiệm thực tế.</li>
+          <li>Tạo kỷ niệm đẹp giữa ba mẹ và con thông qua hoạt động cùng nhau tạo ra thành quả.</li>
+        </ul>
+
+        <div class="bg-[#FFFBEB] border-l-4 border-brand-yellow p-5 rounded-r-xl my-8">
+          <p class="m-0 text-[#854D0E] flex items-start gap-2">
+            <span class="text-xl leading-none">💡</span> 
+            <span><span class="font-bold">Bonus:</span> Cho con "chấm điểm" món ăn từ 1–10 rồi cả nhà cùng tính điểm trung bình – một bài học thống kê siêu dễ thương!</span>
+          </p>
+        </div>
+        
+        <!-- Image placeholder game 5 -->
+        <div class="w-full h-56 bg-gray-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 mt-8 mb-4">
+          <span class="text-gray-400 font-mono text-sm">[Ảnh minh họa: dau-bep-nhi.jpg]</span>
+        </div>
+
+      </div>
+      
+      <!-- Call to Action -->
+      <div class="mt-16 bg-[#FFF8F0] p-8 md:p-12 rounded-3xl border border-brand-orange-border/70 text-center shadow-lg shadow-brand-orange/5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/20 rounded-full blur-2xl -translate-y-16 translate-x-16"></div>
+        <div class="absolute bottom-0 left-0 w-32 h-32 bg-brand-mint/20 rounded-full blur-2xl translate-y-16 -translate-x-16"></div>
+        
+        <h3 class="text-2xl md:text-3xl font-bold text-brand-navy mb-4 relative z-10">Con học thích thú, ba mẹ yên tâm!</h3>
+        <p class="text-gray-600 mb-8 max-w-lg mx-auto relative z-10 text-lg">Đăng ký học thử miễn phí toán tư duy MMABC để giúp con phát triển toàn diện kỹ năng logic.</p>
+        <a href="index.html#dang-ky" class="relative z-10 inline-flex items-center justify-center bg-brand-orange text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-brand-deep-orange transition-all shadow-xl hover:-translate-y-1">
+          Đăng ký học thử miễn phí
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- BEGIN: Newsletter Section -->
+  <section class="py-16 bg-[#FFF0E0]">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-brand-navy mb-4">Nhận bài mới qua Zalo</h2>
+      <p class="text-gray-600 mb-8">Chúng tôi sẽ gửi những mẹo học tập và bài tập tư duy mới nhất trực tiếp cho bạn mỗi tuần.</p>
+      <form class="flex flex-col sm:flex-row gap-3 justify-center items-center" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký!');">
+        <input class="w-full sm:w-80 px-6 py-4 rounded-full border border-brand-orange-border focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none transition-all shadow-sm" placeholder="Nhập số điện thoại Zalo của bạn" required="" type="tel" />
+        <button class="w-full sm:w-auto bg-brand-orange text-white px-8 py-4 rounded-full font-bold hover:bg-brand-deep-orange transition-all shadow-lg" type="submit">
+          Nhắn Zalo ngay
+        </button>
+      </form>
+    </div>
+  </section>
+  <!-- END: Newsletter Section -->
+
+  <!-- BEGIN: Footer -->
+  <footer class="bg-brand-navy pt-16 pb-8 text-white/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/10 pb-12 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <h2 class="text-2xl font-bold text-brand-yellow mb-6">MMABC Đông Mỹ</h2>
+          <p class="text-slate-400 max-w-xs">Xây dựng nền tảng tư duy toán học vững chắc và niềm đam mê học hỏi cho trẻ em Việt.</p>
+        </div>
+        <div class="col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-sm">Liên hệ</h4>
+            <ul class="space-y-4 text-slate-400">
+              <li class="flex items-start">
+                <span class="mr-3 text-brand-orange">📍</span>
+                <span>Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội</span>
+              </li>
+              <li class="flex items-center">
+                <span class="mr-3 text-brand-orange">📞</span>
+                <span>Zalo: 0825 797 789</span>
+              </li>
+              <li class="flex items-center">
+                <span class="mr-3 text-brand-orange">✉</span>
+                <span>mmabcdongmy@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-sm">Theo dõi</h4>
+            <div class="flex space-x-4">
+              <a class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-orange transition-colors" href="https://www.facebook.com/mmabcdongmy">
+                FB
+              </a>
+              <a class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-orange transition-colors" href="https://zalo.me/0825797789">
+                ZL
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-slate-500 text-sm">
+        © 2023 MMABC Đông Mỹ. Tất cả quyền được bảo lưu.
+      </div>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+
+  <!-- BEGIN: Chatbot Widget -->
+  <style data-purpose="chatbot-widget">
+    #mmabc-chatbot-bubble { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: #FF7A2F; color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(255, 122, 47, 0.4); z-index: 9999; transition: transform 0.2s, box-shadow 0.2s }
+    #mmabc-chatbot-bubble:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(255, 122, 47, 0.5) }
+    #mmabc-chatbot-bubble svg { width: 22px; height: 22px; fill: #fff }
+    #mmabc-chatbot-window { position: fixed; bottom: 80px; right: 24px; width: 320px; max-height: 520px; background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); z-index: 9999; display: none; flex-direction: column; overflow: hidden; font-family: 'Public Sans', 'Nunito', sans-serif; animation: mmabcSlideUp .25s ease-out }
+    #mmabc-chatbot-window.open { display: flex }
+    @keyframes mmabcSlideUp { from { opacity: 0; transform: translateY(16px) } to { opacity: 1; transform: translateY(0) } }
+    .mmabc-chat-header { background: #FF7A2F; color: #fff; padding: 14px 16px; display: flex; align-items: center; gap: 10px; flex-shrink: 0 }
+    .mmabc-chat-header-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, .2); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0 }
+    .mmabc-chat-header-info { flex: 1; min-width: 0 }
+    .mmabc-chat-header-name { font-weight: 700; font-size: 14px; line-height: 1.2 }
+    .mmabc-chat-header-status { font-size: 11px; opacity: .85; line-height: 1.3 }
+    .mmabc-chat-close { background: none; border: none; color: #fff; cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background .15s }
+    .mmabc-chat-close:hover { background: rgba(255, 255, 255, .2) }
+    .mmabc-chat-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 0; max-height: 340px }
+    .mmabc-msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 13px; line-height: 1.5; word-wrap: break-word }
+    .mmabc-msg-bot { background: #FFF0E0; color: #1A2B3C; align-self: flex-start; border-bottom-left-radius: 4px }
+    .mmabc-msg-user { background: #FF7A2F; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px }
+    .mmabc-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 }
+    .mmabc-chip { background: #fff; color: #FF7A2F; border: 1.5px solid #FF7A2F; border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .15s; line-height: 1.3; font-family: inherit }
+    .mmabc-chip:hover { background: #FF7A2F; color: #fff }
+    .mmabc-chat-input-area { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-top: 1px solid #f0f0f0; flex-shrink: 0; background: #fff }
+    .mmabc-chat-input { flex: 1; border: 1.5px solid #e5e5e5; border-radius: 999px; padding: 8px 14px; font-size: 13px; outline: none; font-family: inherit; transition: border-color .15s }
+    .mmabc-chat-input:focus { border-color: #FF7A2F }
+    .mmabc-chat-send { width: 34px; height: 34px; border-radius: 50%; background: #FF7A2F; color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .15s }
+    .mmabc-chat-send:hover { background: #e86a20 }
+    .mmabc-chat-send:disabled { background: #ccc; cursor: not-allowed }
+    .mmabc-zalo-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 7px 14px; border: 1.5px solid #FF7A2F; border-radius: 999px; color: #FF7A2F; font-size: 12px; font-weight: 600; text-decoration: none; transition: all .15s; font-family: inherit }
+    .mmabc-zalo-btn:hover { background: #FF7A2F; color: #fff }
+    .mmabc-typing { display: flex; align-items: center; gap: 4px; padding: 10px 14px; background: #FFF0E0; border-radius: 14px; border-bottom-left-radius: 4px; align-self: flex-start; max-width: 85% }
+    .mmabc-typing-dot { width: 6px; height: 6px; border-radius: 50%; background: #FF7A2F; animation: mmabcBounce 1.2s infinite }
+    .mmabc-typing-dot:nth-child(2) { animation-delay: .2s }
+    .mmabc-typing-dot:nth-child(3) { animation-delay: .4s }
+    @keyframes mmabcBounce { 0%, 60%, 100% { transform: translateY(0); opacity: .4 } 30% { transform: translateY(-6px); opacity: 1 } }
+    @media(max-width:400px) { #mmabc-chatbot-window { right: 8px; left: 8px; width: auto; bottom: 72px } }
+  </style>
+  <button id="mmabc-chatbot-bubble" aria-label="Mở chat tư vấn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg></button>
+  <div id="mmabc-chatbot-window">
+    <div class="mmabc-chat-header">
+      <div class="mmabc-chat-header-avatar"><img src="images/logo.png" alt="MMABC Đông Mỹ" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;"></div>
+      <div class="mmabc-chat-header-info">
+        <div class="mmabc-chat-header-name">MMABC Toán Tư Duy</div>
+        <div class="mmabc-chat-header-status">Trả lời trong vài giây</div>
+      </div><button class="mmabc-chat-close" id="mmabc-chat-close-btn" aria-label="Đóng"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></button>
+    </div>
+    <div class="mmabc-chat-body" id="mmabc-chat-body"></div>
+    <div class="mmabc-chat-input-area"><input class="mmabc-chat-input" id="mmabc-chat-input" type="text" placeholder="Nhập câu hỏi..." autocomplete="off" /><button class="mmabc-chat-send" id="mmabc-chat-send-btn" aria-label="Gửi"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div>
+  </div>
+  <script data-purpose="chatbot-widget">
+    (function(){var K='AIzaSyBqkGZf9TQZR-aHXmS73k17Kjcj0ffJGrg',U='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+K,S='Bạn là trợ lý tư vấn cho lớp toán tư duy MMABC Đông Mỹ.\nThông tin lớp:\n- Địa chỉ: Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội\n- Zalo/SĐT: 0825 797 789\n- Facebook: facebook.com/mmabcdongmy\n- Độ tuổi: 4-12 tuổi\n- Sĩ số: tối đa 8 học sinh/lớp\n- Phương pháp: MMABC — phát triển tư duy logic\n- Học thử: miễn phí buổi đầu\n\nTrả lời ngắn gọn, thân thiện, bằng tiếng Việt.\nNếu không biết → đề nghị nhắn Zalo 0825 797 789 hoặc email mmabcdongmy@gmail.com.\nKhông bịa thông tin.',F=[{q:'Học phí bao nhiêu?',a:'Học phí từ 499.000đ/tháng, gồm 8 buổi học. Buổi đầu tiên học thử hoàn toàn miễn phí!'},{q:'Lịch học thế nào?',a:'Lớp học 8 buổi/tháng, lộ trình 24 buổi trong 3 tháng. Mỗi buổi 90 phút.'},{q:'Con mấy tuổi học được?',a:'Lớp MMABC nhận trẻ từ 4 đến 12 tuổi. Bé nào cũng có thể bắt đầu!'},{q:'Lớp có mấy học sinh?',a:'Tối đa 8 học sinh mỗi lớp — đảm bảo cô có thể theo sát từng bé.'},{q:'Đăng ký học thử như thế nào?',a:'Ba/mẹ điền form trên trang chủ hoặc nhắn Zalo 0825 797 789. Cô sẽ liên hệ trong 24 giờ!'},{q:'Lớp ở đâu?',a:'Lớp tại Khu đấu giá Đông Mỹ, xã Nam Phù, Thành phố Hà Nội. Ba/mẹ có thể nhắn Zalo để được chỉ đường!'}],b=document.getElementById('mmabc-chatbot-bubble'),w=document.getElementById('mmabc-chatbot-window'),x=document.getElementById('mmabc-chat-close-btn'),B=document.getElementById('mmabc-chat-body'),I=document.getElementById('mmabc-chat-input'),sB=document.getElementById('mmabc-chat-send-btn'),o=false,h=false;function t(){o=!o;if(o){w.classList.add('open');b.style.display='none';if(!h){h=true;sw()}I.focus()}else{w.classList.remove('open');b.style.display='flex'}}b.onclick=t;x.onclick=t;function am(t2,ty){var d=document.createElement('div');d.className='mmabc-msg '+(ty==='user'?'mmabc-msg-user':'mmabc-msg-bot');d.textContent=t2;B.appendChild(d);sc()}function az(){var wr=document.createElement('div');wr.style.alignSelf='flex-start';wr.innerHTML='<a href="https://zalo.me/0825797789" target="_blank" class="mmabc-zalo-btn">💬 Nhắn Zalo để tư vấn thêm</a>';B.appendChild(wr);sc()}function st(){var d=document.createElement('div');d.className='mmabc-typing';d.id='mmabc-typing-indicator';d.innerHTML='<div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div><div class="mmabc-typing-dot"></div>';B.appendChild(d);sc()}function rt(){var e=document.getElementById('mmabc-typing-indicator');if(e)e.remove()}function sc(){setTimeout(function(){B.scrollTop=B.scrollHeight},50)}function sw(){am('Xin chào! 👋 Mình là trợ lý tư vấn của lớp toán tư duy MMABC Đông Mỹ. Ba/mẹ muốn hỏi gì ạ?','bot');var c=document.createElement('div');c.className='mmabc-chips';c.style.alignSelf='flex-start';F.forEach(function(f){var btn=document.createElement('button');btn.className='mmabc-chip';btn.textContent=f.q;btn.onclick=function(){am(f.q,'user');am(f.a,'bot');az()};c.appendChild(btn)});B.appendChild(c);sc()}function hs(){var tx=I.value.trim();if(!tx)return;I.value='';am(tx,'user');sB.disabled=true;st();fetch(U,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system_instruction:{parts:[{text:S}]},contents:[{parts:[{text:tx}]}]})}).then(function(r){return r.json()}).then(function(d){rt();var rp='';try{rp=d.candidates[0].content.parts[0].text}catch(e){rp='Xin lỗi, ba/mẹ vui lòng nhắn Zalo 0825 797 789 để được tư vấn trực tiếp nhé!'}am(rp,'bot');az();sB.disabled=false}).catch(function(){rt();am('Xin lỗi, có lỗi xảy ra. Ba/mẹ vui lòng nhắn Zalo 0825 797 789 nhé!','bot');az();sB.disabled=false})}sB.onclick=hs;I.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();hs()}}})();
+1134:   </script>
+  <!-- END: Chatbot Widget -->
+</body>
+</html>
