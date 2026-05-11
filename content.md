@@ -1,4 +1,5 @@
-﻿# Tổng hợp nội dung văn bản Website Toán Tư Duy MMABC Đông Mỹ
+# Tổng hợp nội dung văn bản Website Toán Tư Duy MMABC Đông Mỹ
+> Cập nhật lần cuối: Tháng 5/2026 | Source of truth → agent.md
 
 ## Common Elements (Menu, Footer, Chatbot)
 > Source: Các file HTML (`index.html`, `ve-chung-toi.html`, v.v.)
@@ -113,7 +114,7 @@
 **Câu hỏi thường gặp (FAQ):**
 - Câu hỏi ba mẹ hay hỏi nhất
 - Con tôi học toán bình thường khá rồi, có cần học thêm không? -> MMABC không chỉ dạy toán thông thường. Chúng tôi tập trung vào tư duy logic và kỹ năng giải quyết vấn đề...
-- Lớp nhỏ tối đa 8 em có thực sự tốt hơn lớp đông không? -> Chắc chắn rồi. Với số lượng ít, cô giáo có thể theo sát từng em...
+- Lớp nhỏ tối đa **12 bạn** có thực sự tốt hơn lớp đông không? -> Chắc chắn rồi. Với số lượng ít, cô giáo có thể theo sát từng em...
 - Trẻ bao nhiêu tuổi thì có thể bắt đầu học? -> Chúng tôi nhận học sinh từ 4 tuổi trở lên...
 - Học phí tại MMABC Đông Mỹ như thế nào? -> Rất cạnh tranh, đồng thời có các chương trình ưu đãi...
 - Trung tâm có tổ chức học bù nếu con nghỉ không? -> Có, chúng tôi luôn tạo điều kiện để các con được học bù...
@@ -166,7 +167,7 @@
 
 **Các chỉ số:**
 - Con số nhỏ, ý nghĩa lớn
-- ≤ 8: Học sinh mỗi lớp
+- ≤ **12**: Học sinh mỗi lớp
 - 100%: Theo dõi cá nhân
 - 90 ph: Mỗi buổi học
 - 1 buổi: Học thử miễn phí
@@ -205,3 +206,8 @@
 - Chia sẻ qua Zalo | Chia sẻ Facebook
 - Quay về trang chủ
 
+---
+> **File structure hiện tại** (Tháng 5/2026):
+> `index.html` | `ve-chung-toi.html` | `goc-hoc-tap.html` | `ket-qua.html` | `cam-on.html`
+> `bai-viet-mau.html` | `toan-tu-duy-mmabc-la-gi.html` | `con-ghet-toan-ba-me-nen-lam-gi.html` | `do-vui-toan-tu-duy.html`
+> `netlify.toml` | `agent.md` | `content.md` | `api_response.txt` (file tạm, có thể xóa)

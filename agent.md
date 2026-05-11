@@ -1,4 +1,4 @@
-﻿# AGENT.MD — MMABC Đông Mỹ Website
+# AGENT.MD — MMABC Đông Mỹ Website
 > Đọc file này TRƯỚC KHI làm bất cứ thứ gì. Không hỏi lại những gì đã có ở đây.
 
 ---
@@ -10,7 +10,7 @@
 | Project | Website lớp toán tư duy MMABC – Đông Mỹ |
 | Stack | HTML + TailwindCSS CDN + Vanilla JS |
 | Repo | github.com/thiirdmm-ship-it/toantuduy |
-| Deploy | Netlify (chưa live) |
+| Deploy | Netlify — https://mmabcdongmy.netlify.app (cần verify live) |
 | Form backend | Google Sheets + Apps Script |
 | Chatbot | Gemini 2.0 Flash API |
 
@@ -31,6 +31,8 @@
 ├── do-vui-toan-tu-duy.html             # Bài viết: 3 câu đố toán tư duy
 ├── netlify.toml                        # Netlify config (publish dir & redirect)
 ├── agent.md                            # File hướng dẫn cho AI Agent
+├── content.md                          # Tổng hợp nội dung văn bản toàn site
+├── api_response.txt                    # File tạm (test API) — có thể xóa
 └── images/
     ├── logo.png             # Logo trung tâm (chatbot avatar)
     ├── favicon-round.png    # Favicon tròn cho tab browser
@@ -184,15 +186,25 @@ git push origin main
 
 ## 12. VIỆC CÒN LẠI (TODO)
 
-- [ ] Xóa `mode: 'no-cors'` trong form fetch sau khi Netlify live
-- [ ] Test form sau khi Netlify live
-- [ ] Tạo _private/index.html — dashboard quản trị
-- [ ] Điền thông tin lịch học cụ thể (thứ mấy, giờ nào)
+### ⚠️ BUG CẦN SỬA
+- [x] ~~**SĨ SỐ KHÔNG NHẤT QUÁN**~~: Đã sửa `ve-chung-toi.html` (FAQ câu 2) và `ket-qua.html` (Metrics) → đồng bộ về **12 bạn**
+- [ ] Xóa `api_response.txt` (file test, không cần thiết)
+
+### 🔧 KỸ THUẬT
+- [ ] Xóa `mode: 'no-cors'` trong form fetch sau khi xác nhận Netlify live
+- [ ] Test form submit thực tế (kiểm tra Google Sheets nhận data)
 - [ ] Chuyển Gemini API key sang backend proxy (bảo mật)
-- [ ] Thêm ảnh thật vào 3 bài viết (placeholder hiện dùng emoji)
+- [ ] Xác nhận URL live: https://mmabcdongmy.netlify.app
+
+### 📝 NỘI DUNG
+- [ ] Thêm ảnh thật vào 3 bài viết (hiện dùng emoji placeholder: 🧠, 💛, 🧩)
+- [ ] Điền thông tin lịch học cụ thể (thứ mấy, giờ nào) vào index.html
+- [ ] Tạo _private/index.html — dashboard quản trị (tùy chọn)
+
+### ✅ ĐÃ HOÀN THÀNH
 - [x] Thêm ảnh giáo viên Nguyễn Thị Bích Liên vào ve-chung-toi.html
-- [x] Tạo bai-viet-mau.html — template bài viết blog
-- [x] Đồng bộ font Public Sans cho index.html
+- [x] Tạo bai-viet-mau.html — template + bài viết thật (5 trò chơi toán học)
+- [x] Đồng bộ font Public Sans cho toàn site
 - [x] Thêm OG meta tags cho tất cả trang
 - [x] Sửa màu rogue #ec5b13 → #FF7A2F trong cam-on.html
 - [x] Thêm "Trang chủ" làm link đầu tiên trong navbar tất cả trang
@@ -200,11 +212,20 @@ git push origin main
 - [x] Tạo toan-tu-duy-mmabc-la-gi.html
 - [x] Tạo con-ghet-toan-ba-me-nen-lam-gi.html
 - [x] Tạo do-vui-toan-tu-duy.html
+- [x] Cập nhật học phí → Từ 499.000đ/tháng (toàn site)
+- [x] Cập nhật email → mmabcdongmy@gmail.com (toàn site)
+- [x] Cập nhật sĩ số → 12 bạn/lớp (index.html + chatbot FAQ)
 
 ---
-*Cập nhật lần cuối: Tháng 3/2026 — v1.3*
+*Cập nhật lần cuối: Tháng 5/2026 — v1.4*
 
 ## CHANGELOG
+
+### v1.4 — Tháng 5/2026
+- 🔍 Audit: phát hiện inconsistency sĩ số 8 vs 12 trong ve-chung-toi + ket-qua
+- 📁 Ghi nhận api_response.txt (file test cần dọn)
+- 📝 Cập nhật agent.md và content.md theo trạng thái thực tế
+- 📌 Netlify URL xác nhận: https://mmabcdongmy.netlify.app
 
 ### v1.3 — Tháng 3/2026
 - ✅ 3 bài viết mới, navbar thêm Trang chủ, netlify.toml

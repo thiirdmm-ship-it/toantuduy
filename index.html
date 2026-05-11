@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="vi">
 
@@ -11,8 +11,7 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
     rel="stylesheet" />
   <script>
     tailwind.config = {
@@ -52,7 +51,10 @@
     }
 
     /* Smooth hover transitions on all interactive elements */
-    a, button, .card, [class*="hover"] {
+    a,
+    button,
+    .card,
+    [class*="hover"] {
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: auto;
     }
@@ -72,7 +74,8 @@
     }
 
     /* GPU acceleration for animated elements */
-    .card, .mmabc-chatbot-window,
+    .card,
+    .mmabc-chatbot-window,
     .mmabc-chatbot-bubble {
       transform: translateZ(0);
       will-change: transform;
@@ -92,6 +95,7 @@
       box-shadow: 0 0 0 2px rgba(255, 122, 47, 0.3);
       transition: box-shadow 0.15s ease;
     }
+
     html {
       scroll-behavior: smooth;
     }
@@ -669,7 +673,7 @@
         const formData = {};
         new FormData(this).forEach((v, k) => formData[k] = v);
 
-        fetch('https://script.google.com/macros/s/AKfycbx4KNi0xYg91r6ugHnhy9coU_4FdC4SmRb2tESuUnMW8jg63MAhEIeIbjiVoAccA_N6/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbylQQOPiiam3OrhCugB-CBkoISwoUWD54yIafrZwmDmdhIDa7LTdzKu35IKotyXu6os/exec', {
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify(formData)
@@ -1206,21 +1210,20 @@
 
 
   <script>
-  (function() {
-    if (window.location.search.includes('fbclid') || 
+    (function () {
+      if (window.location.search.includes('fbclid') ||
         window.location.search.includes('utm_')) {
-      var url = new URL(window.location.href);
-      url.searchParams.delete('fbclid');
-      url.searchParams.delete('utm_source');
-      url.searchParams.delete('utm_medium');
-      url.searchParams.delete('utm_campaign');
-      url.searchParams.delete('utm_content');
-      url.searchParams.delete('utm_term');
-      window.history.replaceState({}, '', url.toString());
-    }
-  })();
+        var url = new URL(window.location.href);
+        url.searchParams.delete('fbclid');
+        url.searchParams.delete('utm_source');
+        url.searchParams.delete('utm_medium');
+        url.searchParams.delete('utm_campaign');
+        url.searchParams.delete('utm_content');
+        url.searchParams.delete('utm_term');
+        window.history.replaceState({}, '', url.toString());
+      }
+    })();
   </script>
 </body>
 
 </html>
-

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -53,7 +53,10 @@
     }
 
     /* Smooth hover transitions on all interactive elements */
-    a, button, .card, [class*="hover"] {
+    a,
+    button,
+    .card,
+    [class*="hover"] {
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: auto;
     }
@@ -73,7 +76,8 @@
     }
 
     /* GPU acceleration for animated elements */
-    .card, .mmabc-chatbot-window,
+    .card,
+    .mmabc-chatbot-window,
     .mmabc-chatbot-bubble {
       transform: translateZ(0);
       will-change: transform;
@@ -93,6 +97,7 @@
       box-shadow: 0 0 0 2px rgba(255, 122, 47, 0.3);
       transition: box-shadow 0.15s ease;
     }
+
     html {
       scroll-behavior: smooth;
     }
@@ -432,8 +437,7 @@
             <div class="relative">
               <div class="rounded-2xl overflow-hidden shadow-lg">
                 <img alt="Cô Liên - Sáng lập MMABC Đông Mỹ" class="w-full h-auto object-cover aspect-[4/5]"
-                  src="images/co_giao.jpg"
-                  style="object-fit: cover; object-position: center;" />
+                  src="images/co_giao.jpg" style="object-fit: cover; object-position: center;" />
               </div>
               <!-- Experience badge -->
               <div class="absolute bottom-4 left-4 bg-brandPrimary text-white px-4 py-2 rounded-xl shadow-lg">
@@ -1144,5 +1148,3 @@
 </body>
 
 </html>
-
-
